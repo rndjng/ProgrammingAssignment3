@@ -25,3 +25,23 @@ This file explains how to use the run_analysis.R script.
 
 1.  Inspect the 'har' and 'har_summary' objects
 
+
+# Run_analysis.R script explained
+## function activity_labels ()
+
+`Goal` Read activities file 
+`Return value` data frame with 2 columns: activity_code and activity
+
+## function get_features ()
+
+`Goal` Read feature file
+`Return value` a data table with 2 columns: featureName_raw and featureName. The latter can be used for columns names in a data frame
+
+## function read_har_file_set (type) 
+`Goal` Read all relevant files of research type 'test' or 'train' 
+`Return value` a data table with 68 column. 
+`type` {test | train}
+
+The value returned are all the mean()- and std()-columns from the original source. 
+The test and train set are merged in the har data table
+har_summery is identical to har except that the values in the columns represent the mean values of har grouped by Subject_id and Activity.
