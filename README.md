@@ -21,27 +21,24 @@ This file explains how to use the run_analysis.R script.
     - y_test.txt
     - y_train.txt
 
-1.  Run the full script
+1.  make sure the dplyr package is installed on your system
 
-1.  Inspect the 'har' and 'har_summary' objects
+1.  Run the full script. The script will do the following things
 
+  i)  install the dplyr package
 
-# Run_analysis.R script explained
-## function activity_labels ()
+  i)  set the filename containing all the filenames. %TYPE% is used as a placeholder for the test and train sets
 
-`Goal` Read activities file 
-`Return value` data frame with 2 columns: activity_code and activity
+  i)  3 functions as described in CodeBook.MD will be created:
 
-## function get_features ()
+    * function activity_labels -  Read activities file
 
-`Goal` Read feature file
-`Return value` a data table with 2 columns: featureName_raw and featureName. The latter can be used for columns names in a data frame
+    * function get_features () - Read feature file
 
-## function read_har_file_set (type) 
-`Goal` Read all relevant files of research type 'test' or 'train' 
-`Return value` a data table with 68 column. 
-`type` {test | train}
+    * function read_har_file_set (type) - Read all relevant files of research type 'test' or 'train' 
 
-The value returned are all the mean()- and std()-columns from the original source. 
-The test and train set are merged in the har data table
-har_summery is identical to har except that the values in the columns represent the mean values of har grouped by Subject_id and Activity.
+  i) read the test and train set using the read_har_file_set fuction and merge these sets. Assign the result to har.
+
+  i) calculate the mean values in the columns har grouped by Subject_id and Activity and assign the result to har_summery.
+
+5.  Inspect the 'har' and 'har_summary' objects
